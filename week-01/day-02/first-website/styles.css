@@ -1,0 +1,126 @@
+/*Resetting browser style*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('assets/background.png');
+    padding-bottom: 50px;
+}
+
+.logo {
+    min-height: 10px;
+    max-height: 24px;
+}
+
+header {
+    background: #333333;
+}
+
+/* MOBILE nav bar*/
+@media all and (max-width:700px) {
+    header{
+        display: flex;
+        flex-wrap: wrap; /*flex items wrap into multiple lines*/
+        justify-content: center;
+        padding: 30px 15px;
+    }
+
+    nav {
+        display: block;
+        align-items: center;
+    }
+
+    .menu {
+        list-style-type: none;
+        padding: 10px 0;
+    }
+
+    .menu li{
+        padding: 10px 0;
+        text-align: center; 
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .menu li a:hover {
+        color: white;
+    }
+}
+
+/* TABLET and DESKTOP nav bar*/
+@media all and (min-width:700px) {
+    nav{
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 10px;
+    }
+    
+    .menu {
+        list-style-type: none;
+    }
+    
+    .menu li {
+        display: inline-block;
+        padding: 0 20px;
+    }
+
+    .menu li a:hover{
+        color: white;
+    }
+}
+
+
+div {
+  /*  min-width: 250px; */
+    max-width: 1100px;
+    margin: 0px auto; 
+    padding: 10px 20px;
+}
+
+.center-align {
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight:700;
+    margin-top: 10%;
+    padding-top: 40px;
+}
+
+h2 {
+    font-size: 42px;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+p {
+    line-height: 1.6em;
+    margin-bottom: 20px;
+}
+
+.pink {
+    color: #ff0099;
+}
+
+.menu li a:hover {
+    color: white;
+}
