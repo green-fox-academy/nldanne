@@ -19,7 +19,11 @@ Well, maybe not here but feel free to reach out to me on Slack or Discord to get
 
 
 ## Features
+
++ **Cana PAPAYA Syllabus** can be found [here](https://github.com/green-fox-academy/papaya-syllabus)
+
 + [**Week 01**](https://github.com/green-fox-academy/nldanne/tree/master/week-01)
-  * [Day 2](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-02)
+  * Day 2 - [First Website](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-02/first-website)
+  * Day 2 - [Blog Post Page](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-02/blog-post)
   * [Day 3](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-03)
  
