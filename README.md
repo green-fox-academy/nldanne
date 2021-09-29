@@ -19,7 +19,7 @@ Well, maybe not here but feel free to reach out to me on Slack or Discord to get
 
 
 ## Features
-+ [###**Week 01**](https://github.com/green-fox-academy/nldanne/tree/master/week-01)
++ [### **Week 01**](https://github.com/green-fox-academy/nldanne/tree/master/week-01)
   * [Day 2](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-02)
   * [Day 3](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-03)
  
