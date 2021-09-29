@@ -25,5 +25,6 @@ Well, maybe not here but feel free to reach out to me on Slack or Discord to get
 + [**Week 01**](https://github.com/green-fox-academy/nldanne/tree/master/week-01)
   * Day 2 - [First Website](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-02/first-website)
   * Day 2 - [Blog Post Page](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-02/blog-post)
-  * [Day 3](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-03)
+  * Day 3 - [Manipulation with CLI](https://github.com/green-fox-academy/nldanne/tree/master/week-01/day-03)
+  * Day 3 - [Website with oranges repository](https://github.com/nldanne/nldanne.github.io), the website can be found [here](https://nldanne.github.io/)
  
