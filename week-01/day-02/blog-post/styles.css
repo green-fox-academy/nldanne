@@ -1,0 +1,115 @@
+/*Resetting browser style*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 50px 20px;
+}
+
+header {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    padding: 30px 0;
+    background-color: #849bff;
+}
+
+.logo {
+    font-size: 3em;
+}
+
+.posts {
+    margin: 80px 0;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 1.4em;
+    color: #849bff;
+
+}
+
+h3 {
+    font-size: 1.6em;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+p {
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* ----- Input fields' styles beloew -----*/
+label {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+input {
+    font-family: inherit /*'Roboto', sans-serif*/;
+    font-weight: 400;
+    font-size: 1rem;
+    min-width: 50%;
+    padding: 10px;
+    border: solid 2px #e4e8fa;
+    border-radius: 5px;
+}
+
+textarea {
+    font-family: inherit /*'Roboto', sans-serif*/;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.4;
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    resize: none;
+    border: solid 2px #e4e8fa;
+    border-radius: 5px;
+}
+
+::placeholder {
+    font-family: inherit /*'Roboto', sans-serif*/;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    font-weight: 300;
+}
+
+/*---- Primary button style below ----*/
+.primary-btn {
+    padding: 2px 40px;
+    border: solid 3px #849bff;
+    background-color: #849bff;
+    line-height: 2.5;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 8px;
+}
+
+.primary-btn:hover {
+    background-color: #fff;
+    color: #849bff;
+}
+
+/*---- Posted blog posts border style below ----*/
+.posted-item {
+    margin: 20px 0;
+    padding: 20px;
+    border: solid 3px #e4e8fa;
+    border-radius: 5px;
+}
+

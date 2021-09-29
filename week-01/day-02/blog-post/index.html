@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="blog, blog post, HTML5, html, CSS3, css, simple website design">
+    <meta name="description" content="Building a simple Blog page with html and css.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <title>Blog Project</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+        <header>
+            <h1 class="logo">The Blog</h1>
+        </header>
+        <div class="container">
+        <main>
+            <!-- Add new post section STARTS here-->
+            <section class="posts">
+                <h2>Add new post</h2>
+                <br>
+            <!-- New blog post input fields-->
+                <form action="#">
+                    <label for="title">Title</label> <br>
+                    <input class="text-padding" type="text" id="title" name="title" placeholder="Write your awesome blog title here" maxlength="60">
+                    <br><br>
+                    <label for="story">Tell us your story</label> <br>
+                    <textarea class="text-padding" name="story" id="story" rows="0" cols="0" placeholder="My story starts like this..." maxlength="600"></textarea>
+                    <br><br>
+                    <button class="primary-btn" type="button">Submit</button>
+                </form>
+            </section>
+            <!-- Add new post section ENDS here-->
+    
+            <!-- Submitted Blog posts STARTS here-->
+            <section class="posts">
+                <h2>Posts</h2>
+                <div class="posted-item">
+                    <h3>Yes we can have awesome days!</h3>
+                    <p>
+                        Soufflé lollipop pie liquorice cheesecake sugar plum. Cheesecake topping pastry dessert 
+                        brownie chocolate cake. Jelly-o croissant croissant gingerbread chocolate cake topping. 
+                        Tiramisu muffin oat cake chocolate halvah fruitcake. Jelly beans bonbon jelly beans candy 
+                        canes wafer sweet sugar plum bear claw candy.
+                    </p>
+                </div>
+                <div class="posted-item">
+                    <h3>Get swifty in your design</h3>
+                    <p>
+                        Your blood will be my lotion! Oh, it gets darker, Morty. Welcome to the darkest year of 
+                        our adventures. First thing that's different? No more dad, Morty. Well then get your shit together. 
+                        Get it all together and put it in a backpack, all your shit, so it's together. …and if you gotta 
+                        take it somewhere, take it somewhere ya know? Take it to the shit store and sell it, or put it in 
+                        a shit museum. I don't care what you do, you just gotta get it together… Get your shit together.
+                    </p>
+                </div>
+            </section>
+        </main>
+        <footer>
+    
+        </footer>
+    </div>
+
+</body>
+</html>
