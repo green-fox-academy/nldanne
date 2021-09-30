@@ -11,12 +11,12 @@
 //  31
 //  1.87
 
-var firstName = 'Anne';
-var secondName = 'Nguyen';
-var age = 24;
-var height = 1.53;
+var fName: string = 'Anne';
+var sName: string = 'Nguyen';
+var age: number = 24;
+var height: number = 1.53;
 
-console.log(firstName);
-console.log(secondName);
+console.log(fName);
+console.log(sName);
 console.log(age);
 console.log(height);
