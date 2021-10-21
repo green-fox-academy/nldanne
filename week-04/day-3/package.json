@@ -1,0 +1,24 @@
+{
+  "name": "day-03",
+  "version": "1.0.0",
+  "description": "Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/green-fox-academy/nldanne.git"
+  },
+  "author": "nldanne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/green-fox-academy/nldanne/issues"
+  },
+  "homepage": "https://github.com/green-fox-academy/nldanne#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/tape": "^4.13.2",
+    "tape": "^5.3.1"
+  }
+}
