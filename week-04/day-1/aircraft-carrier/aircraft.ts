@@ -6,7 +6,7 @@
     Both aircrafts should keep track of their ammunition
 */
 
-export class Aircraft {
+abstract class Aircraft {
     protected maxAmmo: number;
     protected baseDamage: number;
 
@@ -15,4 +15,12 @@ export class Aircraft {
         this.baseDamage = 0;
     }
 
+    abstract fight() :number;
+    abstract refillAmmo(number:number) :number;
+    abstract getType() :string;
+    abstract getStatus() :string;
+    abstract isPriority() :boolean;
+    
 }
+
+export { Aircraft };
