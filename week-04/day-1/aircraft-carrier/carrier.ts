@@ -36,7 +36,6 @@ class Carrier {
 
 
   public fill() :void {
-    //let priority: boolean = true;
 
     try {
       if(this.storedAmmo === 0) {
@@ -46,23 +45,20 @@ class Carrier {
        console.log('Sorry, ' + error);
     }
 
+
     if(this.storedAmmo > 0) {
-      let currentAmmo: number = 0;
 
         for (let i: number = 0; i < this.aircraftF35.length; i++) {
-          currentAmmo = this.aircraftF35[i].refillAmmo(this.storedAmmo);
-          this.storedAmmo -= 12;
+          this.storedAmmo = this.aircraftF35[i].refillAmmo(this.storedAmmo);
           this.totalDamage += 600;
         }   
   
         for (let j: number = 0; j < this.aircraftF16.length; j++) {
-          currentAmmo = this.aircraftF16[j].refillAmmo(this.storedAmmo);
-          this.storedAmmo -= 8;
+          this.storedAmmo = this.aircraftF16[j].refillAmmo(this.storedAmmo);
           this.totalDamage += 240;
         }
 
     }
-
   }
  
 
@@ -72,40 +68,28 @@ class Carrier {
 
     for(let i: number = 0; i < this.aircraftF35.length; i++) {
       if(this.aircraftF35[i].getCurrentAmmo() > 0) {
-        if(enemyHealth === 0) {
-          console.log(`It's dead Jim :(.`);
-
-        } else {
-          this.totalDamage += this.aircraftF35[i].fight();
           enemyHealth -= this.aircraftF35[i].fight();
         }
       }
-    }
-    
+    //console.log(enemyHealth);
 
     for(let j: number = 0; j < this.aircraftF16.length; j++) {
       if(this.aircraftF16[j].getCurrentAmmo() > 0) {
-        if(enemyHealth === 0) {
-          console.log(`It's dead Jim :(.`);
-
-        } else {
-          this.totalDamage += this.aircraftF16[j].fight();
           enemyHealth -= this.aircraftF16[j].fight();
         //  console.log(enemyHealth);
         }
       }
 
-    }
-
     if(enemyHealth > 0) {
         //console.log(this.getStatus());
         console.log(`Enemy is still alive! HP: ${enemyHealth}`);
       } else {
-        console.log(`Jim it\'s dead :(. HP: ${enemyHealth}`);
+        console.log(`Enemy has been elliminated, Enemy HP: ${enemyHealth}`);
       }
 
-
-
+     // return enemyHealth;
+     carrier.healthPoint = enemyHealth;
+    // console.log(carrier.healthPoint);
   }
 
 
@@ -122,9 +106,19 @@ class Carrier {
       f16 += this.aircraftF16[j].getStatus() + '\n';
     }
 
-    return `${status}\nAircrafts:\n${f35}${f16} `;
+    if(this.healthPoint <= 0) {
+      return (`It's dead Jim :(`);
+
+    } else {
+      return `${status}\nAircrafts:\n${f35}${f16} `;
+    }
   }
 
+/*
+  public getHealthPoint(): number {
+    return this.healthPoint;
+  }
+*/
 
 }
 
@@ -146,7 +140,7 @@ myStuff.add('f35');
 
 //console.log(myStuff.getStatus());
 myStuff.fill();
-//console.log(myStuff.getStatus());
+//console.log(myStuff.getStatus(myStuff));
 
 let secondStuff = new Carrier(50, 4000);
 secondStuff.add('f16');
@@ -154,3 +148,10 @@ secondStuff.add('f35');
 //console.log(secondStuff.getStatus());
 
 myStuff.fight(secondStuff);
+//console.log(myStuff.getStatus());
+console.log(secondStuff.getStatus());
+
+let carrier1 = new Carrier(1, 200);
+carrier1.add('f16');
+carrier1.fill();
+console.log(carrier1.getStatus());
