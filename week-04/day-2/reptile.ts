@@ -2,9 +2,14 @@
 
 import { Animal } from "./animal";
 
-class Reptile extends Animal {
-  constructor(name: string, age? : number) {
+export class Reptile extends Animal {
+  protected numberOfLegs: number;
+  protected hunger: number;
+
+  constructor(name: string, age? : number, legs?: number) {
     super(name, age);
+    this.hunger = 10;
+    this.numberOfLegs = legs ?? 0;
   }
 
   public getName() :string{
@@ -13,6 +18,10 @@ class Reptile extends Animal {
 
   public breed() : string{
     return ('laying eggs.');
+  }
+
+  public eat(): void{
+    this.hunger--;
   }
 }
 
