@@ -3,11 +3,12 @@
 abstract class Animal {
   protected name: string;
   protected age: number;
+  protected colour: string;
   //protected gender: number;
-  //protected colour: number;
   constructor(name: string, age?: number) {
     this.name = name;
     this.age = age ?? 0;
+    this.colour = 'blue';
   }
 
   public abstract getName(): string;
