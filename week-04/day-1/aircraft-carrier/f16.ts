@@ -7,6 +7,7 @@ export class F16 extends Aircraft {
   protected maxAmmo: number;
   protected currentAmmo: number;
   protected baseDamage: number;
+  protected allDamage: number;
 
   constructor() {
     super();
@@ -14,12 +15,14 @@ export class F16 extends Aircraft {
     this.maxAmmo = 8;
     this.currentAmmo = 0;
     this.baseDamage = 30;
+    this.allDamage = 0;
   }
 
 
   public fight() :number{
     this.currentAmmo = 0;
-    return this.baseDamage * this.maxAmmo;
+    this.allDamage = this.baseDamage * this.maxAmmo;
+    return this.allDamage;
   }
 
 
@@ -52,6 +55,11 @@ export class F16 extends Aircraft {
 
   public isPriority() :boolean{
     return false;
+  }
+
+
+  public getCurrentAmmo() :number {
+    return this.currentAmmo;
   }
 }
 

@@ -6,6 +6,7 @@ import { Aircraft } from "./aircraft";
 export class F35 extends Aircraft {
   protected type: string;
   protected currentAmmo: number;
+  protected allDamage: number;
 
   constructor() {
     super();
@@ -13,11 +14,13 @@ export class F35 extends Aircraft {
     this.currentAmmo = 0;
     this.maxAmmo = 12;
     this.baseDamage = 50;
+    this.allDamage = 0;
   }
 
   public fight() :number{
     this.currentAmmo = 0;
-    return this.baseDamage * this.maxAmmo;
+    this.allDamage = this.baseDamage * this.maxAmmo;
+    return this.allDamage;
   }
 
   public refillAmmo(ammunition: number) :number {
@@ -50,10 +53,16 @@ export class F35 extends Aircraft {
   public isPriority() :boolean{
     return true;
   }
-}
 
+  public getCurrentAmmo() :number {
+    return this.currentAmmo;
+  }
+}
+/*
 let myBoom = new F35();
 console.log(myBoom);
 
 console.log(myBoom.refillAmmo(30));
 console.log(myBoom.getStatus());
+
+*/
