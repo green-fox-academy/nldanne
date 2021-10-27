@@ -20,35 +20,30 @@
 
 */
 
-class Counter {
-    private _counter: number;
-    private _initialCounter: number;
+export class Counter {
+    private counter: number;
+    private initialCounter: number;
 
     constructor(input?: number) {
-        if (input) {
-            this._counter = input;
-            this._initialCounter = input;
-        } else {
-            this._counter = 0;
-            this._initialCounter = 0;
-        }
+        this.counter = input ?? 0;
+        this.initialCounter = input ?? 0;
     }
 
-    public add(input?: number) {
-        if(input) {
-            this._counter =  this._counter + input;
+    public add(number?: number) {
+        if(number) {
+            this.counter =  this.counter + number;
         } else {
-            this._counter++;
+            this.counter++;
         }
     }
 
     public get() {
-        return `The counter is at ${this._counter}`;
+        return `The counter is at ${this.counter}`;
     }
 
     public reset() {
-        this._counter = this._initialCounter;
-        return (`The original counter was at ${this._counter}`);
+        this.counter = this.initialCounter;
+        return (`The original counter was at ${this.counter}`);
     }
 }
 
