@@ -28,7 +28,7 @@ class Sharpie {
         this._inkAmount = this._inkAmount -10;
     }
 
-    getSharpie() {
+    public getSharpie() {
         return (`The sharpie is ${this._color} and ${this._width}mm thick, that has ${this._inkAmount}% ink left in it.`)
     }
 }
