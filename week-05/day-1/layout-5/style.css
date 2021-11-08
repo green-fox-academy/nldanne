@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: lightskyblue;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+
+}
+
+ul.nav {
+  display: flex;
+}
+
+.nav li{
+  list-style-type: none;
+}
+
+.nav-items {
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  background-color: blue;
+  margin-right: 25px;
+  align-self: center;
+}
+
+.icons {
+  list-style-type: none;
+  display: flex;
+  margin-right: 20px;
+}
+
+.login {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 25px;
+  background-color: blue;
+  align-self: center;
+}
+
+.main{
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.main-content {
+  width: auto;
+  height: inherit;
+  background-color: lightgoldenrodyellow;
+  padding: 20px;
+  display: inline-block;
+}
+
+.red-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.square-red {
+  width: 200px;
+  height: 200px;
+  background-color: lightsalmon;
+}
+
+.col-2 {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.article1 {
+  width: 45%;
+}
+
+.sidebar {
+  width: 900px;
+  height: auto;
+  background-color: lightgreen;
+  padding: 20px;
+  display: inline-block;
+  justify-content: center;
+}
+
+.topic {
+  display: inline-flexbox;
+
+}
+
+.item-purple {
+  align-items: center;
+  margin-bottom: 10px;
+  width: 90%;
+  height: 50px;
+  background-color: magenta;
+}
+
