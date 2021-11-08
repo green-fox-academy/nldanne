@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.item-green {
+  background-color: greenyellow;
+  width: 25%;
+  height: 360px;
+}
+
+.item-yellow {
+  background-color: yellow;
+  width: 50%;
+  height: 360px;
+}
+
+.item-purple {
+  background-color: purple;
+  width: 25%;
+  height: 360px;
+}
