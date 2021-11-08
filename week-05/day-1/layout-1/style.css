@@ -6,7 +6,7 @@
 }
 
 /* Nav sytles */
-.list-container {
+.header {
   display: flex;
   justify-content: flex-start;
   width: 100%;
@@ -31,13 +31,13 @@
   display: flex;
 }
 
-article {
+.main-content {
   width: 70%;
   height: 500px;
   background-color: lightgoldenrodyellow;
 }
 
-section {
+.sidebar {
   width: 30%;
   height: 500px;
   background-color: lightgreen;
