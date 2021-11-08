@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  background-color: yellow;
+  height: 400px;
+  width: 750px;
+  /* align the content to the center horizontally */
+  justify-content: center;
+
+}
+
+.item-purple {
+  background-color: purple;
+  height: 100px;
+  width: 100px;
+  /* aligns the item to the center vertically*/
+  align-self: center;
+}
