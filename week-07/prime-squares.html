@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Prime squares</title>
+      <style>
+          * {
+              box-sizing: border-box;
+              font-family: arial;
+          }
+          section {
+              display: grid;
+              grid-auto-rows: 50px;
+              grid-template-columns: repeat(10, 1fr);
+              width: 1000px;
+              margin: 0 auto;
+          }
+          section div {
+              box-shadow: 0px 0px 10px #666 inset;
+              text-align: center;
+              line-height: 50px;
+          }
+          .not-prime {
+              background: tomato;
+          }
+          .prime {
+              background: limegreen;
+          }
+      </style>
+  </head>
+  <body>
+      <section>
+          <div>1</div>
+      </section>
+
+      <script>
+        //   1: generate 100 divs to the <section> element and add index numbers to it as the element's textContent
+          for (let i = 2; i <= 100; i++) {
+            //When you create div inside the function , it is creating a new node which is getting added to the parent
+            let myDiv = document.createElement('div');
+            let nodeText = document.createTextNode(i);
+            myDiv.appendChild(nodeText);
+
+            document.querySelector('section').appendChild(myDiv);
+          }
+          
+        //   2: Create a function that adds a 'not-prime' class to a div if it's not a prime and 'prime' if 
+
+          function isPrime(number) {
+            if (number == 1) {
+              return false;
+            } else if (number === 2){
+              return true;
+
+            } else {
+              for (let i = 2; i < number; i++) {
+                if (number % i == 0) {
+                  return false;
+                }
+              }
+              return true;
+            }
+          }
+
+          function addClass(div) {
+           // let allDivs = document.getElementsByTagName('div');
+           // for (let i = 0; i < allDivs.length; i++) {
+              if (isPrime(div.innerText) == true) {
+                div.classList.add('prime');
+              } else {
+                div.classList.add('not-prime');
+              }
+            }
+         // }
+        
+        let myDivs = document.getElementsByTagName('div');
+        //   3: Create a timer that keeps calling the prime validatior function until it reaches the end of elements
+        //    - the timer should fire every 100ms
+        //    - the timer should stop when there are no more elements left to be colored
+
+        let counter = 100;
+        let index = 0;
+        let colour = setInterval(() => {
+          addClass(myDivs[index]);
+          counter--;
+          index++;
+          if(counter === 0) {
+            clearInterval(colour);
+          }
+        }, 100);
+      </script>
+  </body>
+</html>
