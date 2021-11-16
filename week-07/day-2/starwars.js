@@ -13,6 +13,7 @@ button.onclick = () => {
  
           const li = document.createElement('li');
           li.textContent = body.results[0].name;
+          li.classList.add('underline');
           characterList.appendChild(li);
 
           const movies = document.querySelector('.movie-list');
