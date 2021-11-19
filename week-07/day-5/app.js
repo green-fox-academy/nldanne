@@ -25,9 +25,11 @@ conn.connect((error) => {
 
 });
 
+
 app.get('/hello', (req, res) => {
   res.send("<h1> Hello World</h1>");
 })
+
 
 app.get('/posts', (req, res) => {
   const SQL_GET_POSTS_QUERY = 'SELECT * FROM posts;';
@@ -50,10 +52,44 @@ app.get('/posts', (req, res) => {
       //  console.log(theTime);
         rows[i].timestamp = theTime;
       }
-
     }
   
     res.status(200).json({"posts": rows});
+  });
+
+});
+
+app.post('/posts', (req, res) => {
+  const SQ_INSERT_POST_QUERY = 'INSERT INTO posts (title, url) VALUES (?, ?);';  
+  
+  let newId = null;
+
+  if (req.headers['content-type'] !== 'application/json') {
+    res.status(400).json('Please provide correct json content!');
+    return;
+  }
+
+  conn.query(SQ_INSERT_POST_QUERY, [req.body.title, req.body.url], (error, rows) => {
+    if (error) {
+      console.log(error);
+      res.status(500).json('INTERNAL SERVER ERROR 2');
+      return;
+    }
+
+    newId = rows.insertId;
+    const SQL_SELECT_POST_QUERY = `SELECT * FROM posts WHERE id=?;`;
+
+    conn.query(SQL_SELECT_POST_QUERY, [newId], (error, rows) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json('INTERNAL SERVER ERROR 3');
+        return;
+      }
+
+      res.status(201).json(rows);
+      console.log('new Reddit post was successfully added');
+    })
+
   });
 
 });
