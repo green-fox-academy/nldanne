@@ -1,0 +1,8 @@
+CREATE TABLE votes (user_id INT NOT NULL, 
+  post_id INT NOT NULL, 
+  vote INT DEFAULT 0, 
+  PRIMARY KEY(user_id, post_id), 
+  FOREIGN KEY(user_id) REFERENCES users(user_id), 
+  FOREIGN KEY(post_id) REFERENCES posts(id));
+
+INSERT INTO votes (user_id, post_id, vote) VALUES (1, 1, 0);
