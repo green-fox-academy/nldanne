@@ -30,7 +30,7 @@ app.get('/hello', (req, res) => {
   res.send("<h1> Hello World</h1>");
 })
 
-
+// GET all posts
 app.get('/posts', (req, res) => {
   const SQL_GET_POSTS_QUERY = 'SELECT * FROM posts;';
 
@@ -59,6 +59,7 @@ app.get('/posts', (req, res) => {
 
 });
 
+// create a new reddit post
 app.post('/posts', (req, res) => {
   const SQ_INSERT_POST_QUERY = 'INSERT INTO posts (title, url) VALUES (?, ?);';  
   
