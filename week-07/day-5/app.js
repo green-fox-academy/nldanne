@@ -77,6 +77,8 @@ app.post('/posts', (req, res) => {
       return;
     }
 
+    // responds with the json of the newly created reddit post
+    
     newId = rows.insertId;
     const SQL_SELECT_POST_QUERY = `SELECT * FROM posts WHERE id=?;`;
 
