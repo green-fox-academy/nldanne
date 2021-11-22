@@ -109,14 +109,105 @@ app.post('/posts', (req, res) => {
   
         res.status(201).json(rows);
         console.log('new Reddit post was successfully added');
-      })
+      });
   
     });
-  })
-
+  });
 
 });
 
-//app.put('/posts/:id', (req, res) => {
-//  const SQL_UPDATE_POST_QUERY ;
-//})
+
+// upvote on existing reddit post
+app.put('/posts/:id/upvote', (req, res) => {
+  const SQL_UPVOTE_QUERY = 'UPDATE posts SET score = score + 1 WHERE id = ?;';
+
+  conn.query(SQL_UPVOTE_QUERY, [req.params.id], (error, rows) => {
+    if(error) {
+      console.log(error);
+      res.status(500).json('INTERNAL SERVER ERROR UPVOTE');
+      return;
+    }
+
+    const SQL_GET_CURRENT_POST = `SELECT id, title, url, timestamp, score, user_name AS owner FROM posts INNER JOIN users ON posts.user_id = users.user_id WHERE id=?;`;
+    
+    conn.query(SQL_GET_CURRENT_POST, [req.params.id], (error, rows) => {
+      if(error) {
+        console.log(error);
+        res.status(500).json('INTERNAL SERVER ERROR UPVOTE CURRENT');
+        return;
+      }
+
+      res.status(201).json(rows);
+      //console.log(upvoted);
+    });
+  });
+});
+
+
+// upvote on existing reddit post
+app.put('/posts/:id/downvote', (req, res) => {
+  const SQL_UPVOTE_QUERY = 'UPDATE posts SET score = score - 1 WHERE id = ?;';
+
+  conn.query(SQL_UPVOTE_QUERY, [req.params.id], (error, rows) => {
+    if(error) {
+      console.log(error);
+      res.status(500).json('INTERNAL SERVER ERROR UPVOTE');
+      return;
+    }
+
+    const SQL_GET_CURRENT_POST = `SELECT id, title, url, timestamp, score, user_name AS owner FROM posts INNER JOIN users ON posts.user_id = users.user_id WHERE id=?;`;
+    
+    conn.query(SQL_GET_CURRENT_POST, [req.params.id], (error, rows) => {
+      if(error) {
+        console.log(error);
+        res.status(500).json('INTERNAL SERVER ERROR UPVOTE CURRENT');
+        return;
+      }
+
+      res.status(201).json(rows);
+      //console.log(upvoted);
+    });
+  });
+});
+
+
+// UPDATE post
+app.put('/posts/:id', (req, res) => {
+  let time = new Date();
+  let newTimeStamp = time.getTime();
+  const SQL_UPDATE_QUERY = `UPDATE posts SET title = ?, timestamp = ${newTimeStamp} WHERE id = ?;`;
+
+  conn.query(SQL_UPDATE_QUERY, [req,params.id], (error, rows) => {
+    if(error) {
+      console.log(error);
+      res.status(500).json('INTERNAL SERVER ERROR UPVOTE CURRENT');
+      return;
+    }
+    
+    const SQL_GET_CURRENT_POST = `SELECT id, title, url, timestamp, score, user_name AS owner FROM posts INNER JOIN users ON posts.user_id = users.user_id WHERE id=?;`;
+    
+    conn.query(SQL_GET_CURRENT_POST, [req.params.id], (error, rows) => {
+      if(error) {
+        console.log(error);
+        res.status(500).json('INTERNAL SERVER ERROR UPVOTE CURRENT');
+        return;
+      }
+
+      res.status(201).json(rows);
+      //console.log(upvoted);
+    });
+  });
+});
+
+
+// DELETE POST
+app.delete('/posts/:id', (req, res) => {
+  const SQL_DELETE_POST_QUERY = 'DELETE FROM posts WHERE'
+
+  if (req.headers['content-type'] !== 'application/json') {
+    res.status(400).json('Please provide correct json content!');
+    return;
+  }
+
+  // code missing
+});
