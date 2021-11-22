@@ -2,7 +2,8 @@
   title VARCHAR(240) NOT NULL, 
   url VARCHAR(2083) NOT NULL, 
   timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-  score INT DEFAULT 0, 
+  score INT DEFAULT 0,
+  user_id INT NOT NULL, 
   PRIMARY KEY (id));
 
    INSERT INTO posts (title, url, score) VALUES ("Dear Javascript", "http://9gag.com", 0);
