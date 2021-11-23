@@ -17,16 +17,21 @@
 
     const button = document.querySelector('button');
     
-    function delay () {
-      setTimeout(showtext, 2000);
-    }
+    //function delay () {
+    //  setTimeout(showtext, 2000);
+   // }
 
-    const showtext = () => {
+    //const showtext = () => {
+    //    const pTag = document.querySelector('p');
+    //    pTag.textContent = '2 seconds ellapsed';
+    //};
+
+    button.addEventListener('click', () => {
+      setTimeout(() => {
         const pTag = document.querySelector('p');
         pTag.textContent = '2 seconds ellapsed';
-    };
-
-    button.addEventListener('click', delay);
+      }, 2000);
+    });
   </script>
 </body>
 </html>
