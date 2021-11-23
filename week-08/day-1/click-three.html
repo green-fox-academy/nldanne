@@ -23,17 +23,17 @@
 
     window.addEventListener('load', (event) => {
       let startTime = new Date().getSeconds();
-      //console.log(startTime);
       let maxTime = startTime + 5;
-      //console.log(maxTime);
       let myTime = setInterval(show, 5000);
+
       function show() {
         let time = new Date().getSeconds();
         counter++;
+        
         if(counter === 3 && maxTime > time) {
-
           pTag.textContent = '5 seconds elapsed and clicked 3 times';
           clearInterval(myTime);
+
         } else if (maxTime === time) {
           clearInterval(myTime);
         }
