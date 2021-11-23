@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: EventListeners</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        text-align: center;
+      }
+      button {
+        margin: 16px;
+      }
+      .img-inspector {
+        margin: 0 auto;
+        width: 500px;
+        height: 320px;
+        border: 1px solid #3a3a3a;
+        background-image: url("assets/mp.jpg");
+        background-size: 200%;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <button data-action="move" data-direction="up">Up</button>
+      <button data-action="move" data-direction="down">Down</button>
+      <button data-action="move" data-direction="left">Left</button>
+      <button data-action="move" data-direction="right">Right</button>
+      <button data-action="zoom" data-direction="in">Zoom in</button>
+      <button data-action="zoom" data-direction="out">Zoom out</button>
+    </nav>
+    <div class="img-inspector">
+    </div>
+
+    <!-- You can work in the html or in a separate js file. Like: -->
+    <script>
+      //Here is an image inspector, but the buttons are not implemented yet, that will
+      //be your task!
+      // - the nav buttons (up, down, left, right) move the background by 10px
+      // - the zoom buttons increase/decrease the image by 20%
+      // - attach only two event listeners to the nav element
+      //   - one for navigation
+      //   - one for zooming
+
+      const nav = document.querySelector('nav');
+      const imgInspector = document.querySelector('.img-inspector');
+
+      imgInspector.style.backgroundPositionX = '0';
+      imgInspector.style.backgroundPositionY = '0';
+      let x = 0;
+      let y = 0;
+      
+      //console.log(allButtons[0].getAttribute("data-direction"));
+      const onKeyMove = (event) => {
+        //console.log(event);  // event.target to see what button has been clicked
+
+          if(event.target.getAttribute("data-direction") === 'up') {  // retrives the value of the html tag with the attribute 'data-direction'
+            y = y - 10;
+            imgInspector.style.backgroundPositionY = `${y}px`;
+            //console.log(event.target);
+          } else if (event.target.getAttribute("data-direction") === 'down') {
+            y = y + 10;
+            imgInspector.style.backgroundPositionY = y +'px';
+
+          } else if (event.target.getAttribute("data-direction") === 'right') {
+            x = x + 10;
+            imgInspector.style.backgroundPositionX = x +'px';
+
+          } else if (event.target.getAttribute("data-direction") === 'left') {
+            x = x - 10;
+            imgInspector.style.backgroundPositionX = x +'px';
+          }
+      }
+
+      //console.log(getComputedStyle(imgInspector).backgroundSize);  // retrives the bg size of the imgInspector css selector: 200%
+      let originalSize = (getComputedStyle(imgInspector).backgroundSize);
+      let size = parseFloat(originalSize);
+      //console.log(size);
+      const zoom = (event) => {
+        if (event.target.getAttribute('data-direction') === 'in') {
+          size = size + 20;
+          imgInspector.style.setProperty('background-size', size + '%');
+
+        } else if (event.target.getAttribute('data-direction') === 'out') {
+          size = size -20;
+          imgInspector.style.setProperty('background-size', size +'%');
+        }
+      }
+
+      nav.addEventListener('click', onKeyMove);
+      nav.addEventListener('click', zoom);
+
+    </script>
+  <!--  OR
+    <script src="bubbling.js"></script> -->
+  </body>
+</html>
