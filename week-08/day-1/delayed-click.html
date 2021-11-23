@@ -16,7 +16,16 @@
     //If the user clicks the button it should wait 2 seconds and it should show a text under the button: 2 seconds ellapsed
 
     const button = document.querySelector('button');
+    const p = document.querySelector('p');
     
+    const showText = () => {
+      setTimeout(() => {
+        p.textContent = '2 second elapsed';
+      }, 2000);
+    };
+
+    button.addEventListener('click', showText);
+
     //function delay () {
     //  setTimeout(showtext, 2000);
    // }
@@ -26,12 +35,12 @@
     //    pTag.textContent = '2 seconds ellapsed';
     //};
 
-    button.addEventListener('click', () => {
-      setTimeout(() => {
-        const pTag = document.querySelector('p');
-        pTag.textContent = '2 seconds ellapsed';
-      }, 2000);
-    });
+    //button.addEventListener('click', () => {
+    //  setTimeout(() => {
+    //    const pTag = document.querySelector('p');
+    //    pTag.textContent = '2 seconds ellapsed';
+     // }, 2000);
+    //});
   </script>
 </body>
 </html>
