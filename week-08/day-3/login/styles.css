@@ -1,0 +1,76 @@
+body {
+  background-color: #EBEBEB;
+  font-family: 'Raleway', sans-serif;
+}
+
+form {
+  width: 400px;
+  height: 380px;
+  background-color: white;
+  margin: auto;
+  padding: 60px 60px;
+  border-radius: 10px;
+  border: 0;
+}
+
+form *{
+  color: #333333;
+  font-weight: medium;
+  letter-spacing: 0.5px;
+  outline: none;
+}
+
+label {
+  display: block;
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: medium;
+}
+
+input {
+  display: block;
+  height: 40px;
+  width: 100%;
+  border-radius: 3px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  border: 1px solid darkgrey;
+}
+
+input:focus {
+  border: 2px solid #06d68a;
+}
+
+button {
+  margin-top: 30px;
+  width: 140px;
+  height: 50px;
+  border-radius: 30px;
+  border: 0;
+  background-color: #333333;
+  color: whitesmoke;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.pwd {
+  position: relative;
+}
+
+i {
+  z-index: 999;
+  position: absolute;
+  top: 38%;
+  right: 10px;
+  cursor: pointer;
+  color: darkgrey;
+}
+
+.pwd p{
+  text-align: right;
+  font-size: 13px;
+}
+.pwd p a{
+  text-decoration: none;
+}
