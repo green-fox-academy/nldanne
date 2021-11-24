@@ -37,6 +37,7 @@ input {
   font-size: 14px;
   font-weight: 300;
   border: 1px solid darkgrey;
+
 }
 
 input:focus {
@@ -53,6 +54,11 @@ button {
   color: whitesmoke;
   font-size: 14px;
   letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 80%;
 }
 
 .pwd {
@@ -74,4 +80,8 @@ i {
 }
 .pwd p a{
   text-decoration: none;
+}
+
+.pwd p a:hover {
+  color: #33333367;
 }
