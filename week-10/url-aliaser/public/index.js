@@ -1,6 +1,5 @@
 'use strict';
 
-const { response } = require("express");
 
 const p = document.querySelector('#message');
 const form = document.querySelector('form');
@@ -22,7 +21,7 @@ form.addEventListener('submit', (event) => {
     }
 
     if(response.status === 201) {
-      p.style.color = 'blue';
+      p.style.color = 'black';
     }
 
     return response.json();
@@ -32,7 +31,7 @@ form.addEventListener('submit', (event) => {
       p.textContent = data.message;
       return;
     } else {
-      p.innerHTML = `Your URL is aliased to <b>${data.alias}</b> and your secret code is <b>{${data.secretCode}.</b>`;
+      p.innerHTML = `Your URL is aliased to <b>${data.alias}</b> and your secret code is <b>${data.secretCode}.</b>`;
       form.reset();
     }
   })
