@@ -90,7 +90,7 @@ app.post('/api/links', (req, res) => {
   }
 });
 
-app.get('a/:alias', (req, res) => {
+app.get('/a/:alias', (req, res) => {
 
   if(!req.params.alias || req.params.alias === '') {
     res.status(400).json({message: 'Please provide an alias'});
@@ -107,8 +107,18 @@ app.get('a/:alias', (req, res) => {
       return;
 
     } else {
-      result[0].hitCount++;
-      res.redirect(301, result[0].url);
+      let hitCount = result[0].hitCount;
+      hitCount = Number(hitCount)+1;
+
+      conn.query(`UPDATE entries SET hitCount = ${hitCount} WHERE alias = ?;`, [req.params.alias], (err, rows) => {
+        if(err) {
+          res.status(500).json({message: 'Internal server error 10'});
+          return;
+        } else {
+
+          res.redirect(301, result[0].url);
+        }
+      })
     }
   });
 });
