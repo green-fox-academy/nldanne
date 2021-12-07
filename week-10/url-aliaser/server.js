@@ -45,7 +45,8 @@ app.get('/api/links', (req, res) => {
       res.status(500).json({message: 'Internal server error 5'});
       return;
     } 
-    res.send(200).json(rows);
+    res.status(200).json(rows);
+    //console.log(rows);
   });
 });
 
