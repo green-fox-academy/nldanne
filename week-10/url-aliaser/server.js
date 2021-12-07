@@ -110,7 +110,7 @@ app.get('/a/:alias', (req, res) => {
       let hitCount = result[0].hitCount;
       hitCount = Number(hitCount)+1;
 
-      conn.query(`UPDATE entries SET hitCount = ${hitCount} WHERE alias = ?;`, [req.params.alias], (err, rows) => {
+      conn.query(`UPDATE entries SET hitCount = ? WHERE alias = ?;`, [hitCount, req.params.alias], (err, rows) => {
         if(err) {
           res.status(500).json({message: 'Internal server error 10'});
           return;
@@ -147,6 +147,7 @@ app.delete('/api/links/:id', (req, res) => {
         conn.query('DELETE FROM entries WHERE id = ?;' [req.params.id], (err, rows) => {
           if (err) {
             res.status(500).json({message: 'Internal server error 8'});
+            return;
           } else {
             res.status(204).json({message: 'Entry has been deleted'});
           }
