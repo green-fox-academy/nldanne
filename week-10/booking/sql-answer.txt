@@ -1,0 +1,4 @@
+SELECT name, country 
+FROM applicants
+INNER JOIN countries ON applicants.country_id
+WHERE applicants.country_id = 1 AND applicants.age = 40;
