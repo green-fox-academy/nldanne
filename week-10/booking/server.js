@@ -30,8 +30,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/manage-booking', (req, res) => {
-
+  res.sendFile(__dirname + 'public/manage.html');
 });
+
 
 function bookingReferenceGenerator(length) {
 	let result = '';
@@ -43,7 +44,6 @@ function bookingReferenceGenerator(length) {
 	}
 	return result;
 }
-
 
 app.post('/api/booking', (req, res) => {
 
@@ -81,5 +81,23 @@ app.post('/api/booking', (req, res) => {
 });
 
 
+app.get('/api/booking', (req, res) => {
+  if(!req.query.lastName || req.query.lastName === '' || !req.query.bookingReference || req.query.bookingReference === '') {
+    res.status(400).json({message: 'Please fill out all the fields correctly.'});
+    return;
+  }
+
+  conn.query('SELECT firstName, lastName, passportNumber FROM booking WHERE lastName = ? AND bookingReference = ?; ', [req.query.lastName, req.query.bookingReference], (err, result) => {
+    if(err) {
+      res.status(500).json({message: 'Internal server error'});
+      return;
+    } else if (result.length === 0) {
+      res.status(404).json({message: `No account was found for the flight with booking reference ${req.query.bookingReference}`});
+      return;
+    } else {
+      res.status(200).json(result[0]);
+    }
+  });
+});
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
