@@ -13,7 +13,7 @@ const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'password',
-  database: 'flight-booking',
+  database: 'flightBooking',
 });
 
 conn.connect((error) => {
@@ -56,10 +56,28 @@ app.post('/api/booking', (req, res) => {
     if(err) {
       res.status(500).json({message: 'Internal server error'});
       return;
+    } else if (result.length === 0) {
+      let bookingReference = bookingReferenceGenerator(6);
+
+      conn.query('INSERT INTO booking (firstName, lastName, passportNumber, bookingReference) VALUES (?, ?, ?, ?);', [req.body.firstName, req.body.lastname, req.body.passportNumber, bookingReference], (err, rows) => {
+        if (err) {
+            res.status(500).json({message: 'Internal serverv error'});
+          return;
+        } else {
+            conn.query('SELECT bookingReference FROM booking wHERE id = ?,', [rows.insertId], (err, result) => {
+              if (err) {
+                res.status(500).json({message: 'Internal server error'});
+                return;
+              } else {
+                res.status(201).json(result[0]);
+              }
+            });
+        }
+      });
+    } else {
+      res.status(400).json({message: 'Passport number already used'});
     }
   })
-
-
 });
 
 
