@@ -22,7 +22,7 @@ form.addEventListener('submit', (event) => {
   })
   .then(response => response.json())
   .then(data => {
-    if(err) {
+    if(data.message) {
       p.textContent = data.message;
     } else {
       p.textContent = `Succesfull booking. Your booking reference is ${data.bookingReference}.`;
