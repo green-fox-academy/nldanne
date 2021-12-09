@@ -1,0 +1,10 @@
+CREATE DATABASE auction;
+
+CREATE TABLE stuffs (
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(28) NOT NULL,
+  expiryDate BIGINIT NOT NULL,
+  highestBid INT NOT NULL,
+  highestBidderName VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id)
+);

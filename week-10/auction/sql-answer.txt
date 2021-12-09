@@ -1,0 +1,6 @@
+SELECT * FROM carsForSale
+WHERE manufacturerName = 'Renault' AND acquisitionPrice > 8000;
+
+UPDATE carsForSale
+SET acquisitionPrice = acquisitionPrice + 100
+WHERE manufacturerName = 'Volkswagen';
