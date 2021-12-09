@@ -43,15 +43,16 @@ form.addEventListener('submit', (event) => {
 
   if(!form.bidderName.value || form.bidderName.value === '' || !form.amount.value || form.bidderName.value === '') {
     p.textContent = 'Please fill in the fields';
+    return;
   }
 
-  let index = document.querySelector('select').options.selectedIndex;
+  let index = document.querySelector('select').options.selectedIndex +1;
 
   fetch(`http://localhost:3000/api/items/:${index}/bids`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      highestBidderName: form.bidderName.value,
+      bidderName: form.bidderName.value,
       amount: form.amount.value
     })
   })
@@ -69,7 +70,7 @@ form.addEventListener('submit', (event) => {
       return;
     }
 
-    if(data.messasge === 'Succesfull!') {
+    if(data.message === 'Succesfull!') {
       form.reset();
       location.reload();
     }

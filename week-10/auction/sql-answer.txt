@@ -4,3 +4,9 @@ WHERE manufacturerName = 'Renault' AND acquisitionPrice > 8000;
 UPDATE carsForSale
 SET acquisitionPrice = acquisitionPrice + 100
 WHERE manufacturerName = 'Volkswagen';
+
+
+//MUST KNOW
+ALTER TABLE auctions
+MODIFY expiryDate DATETIME NOT NULL;
+// add all the data attributes again after MODIFY

@@ -35,7 +35,7 @@ app.post('/api/items/:id/bids', (req, res) => {
   }
 
   if(!req.params.id) {
-    res.status(400).json({message: 'Provide and id'});
+    res.status(400).json({message: 'Please select an option'});
     return;
   }
 
