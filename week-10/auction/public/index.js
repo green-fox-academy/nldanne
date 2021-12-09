@@ -32,11 +32,11 @@ window.addEventListener('load', (event) => {
     })
 });
 
-const valami = document.getElementById('1');
-console.log(valami);
+//const valami = document.getElementById('1');
+//console.log(valami);
 
-console.log(select);
-console.log(select.selectedIndex);
+//console.log(select);
+//console.log(select.selectedIndex);
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -70,8 +70,8 @@ form.addEventListener('submit', (event) => {
     }
 
     if(data.messasge === 'Succesfull!') {
-      location.reload();
       form.reset();
+      location.reload();
     }
   })
   .catch(error => {

@@ -45,10 +45,6 @@ app.post('/api/items/:id/bids', (req, res) => {
       res.status(500).json({message: 'Internal server error'});
       return;
     } else if (result.length === 0) {
-      res.status(400).json({message: 'There is no item like that on the auction'});
-      return;
-    } else if (result[0].expiryDate < currentDate) {
-      //If the auction is over
       res.status(400).json({message: "The auction is over!"});
       return;
     } else {
@@ -80,3 +76,4 @@ app.get('/api/items', (req, res) => {
   })
 });
 
+app.listen(PORT, () => console.log('Server running on port' + PORT));
